@@ -1,38 +1,136 @@
-.App {
+/* Global reset and styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #f0f8f4; /* Soft mint green background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: #3a3a3a; /* Darker text for better contrast */
+  margin-bottom: 20px;
+  font-weight: 600;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Main container for both editor and preview */
+.container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 95%;
+  max-width: 600px;
+  background-color: #ffffff; /* White background for the container */
+  border: 1px solid #d0e9d3; /* Mint green border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px; /* Boxier, less rounded corners */
+}
+
+/* Editor and preview sections */
+.editor-container, .preview-container {
+  margin-bottom: 20px;
+  background-color: #ffffff; /* White background */
+  border: 1px solid #d0e9d3; /* Mint green border */
+  padding: 15px;
+  border-radius: 4px; /* Smaller radius for sharper box look */
+}
+
+textarea {
+  width: 100%;
+  height: 250px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #d0e9d3; /* Mint green border for textarea */
+  border-radius: 4px; /* Sharper corners */
+  background-color: #f9fdf7; /* Light mint green background */
+  color: #3a3a3a; /* Darker text for better readability */
+  outline: none;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  resize: none;
+}
+
+textarea:focus {
+  border-color: #66c28d; /* Darker mint green when focused */
+  background-color: #ffffff; /* White background when focused */
+}
+
+#preview {
+  padding: 20px;
+  background-color: #ffffff; /* White background */
+  border: 1px solid #d0e9d3; /* Mint green border */
+  border-radius: 4px;
+  box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.05);
+  min-height: 250px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #3a3a3a; /* Darker text */
+  overflow-y: auto;
+}
+
+/* iOS-like buttons, active states, and hover effects */
+button {
+  background-color: #66c28d; /* Mint green button */
   color: white;
+  border: none;
+  border-radius: 4px; /* Smaller radius for sharp look */
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #58b67a; /* Darker mint green when hovering */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button:active {
+  background-color: #4a9d6b; /* Even darker mint green when active */
+}
+
+/* Smooth scrollbar for iPhone-like UI */
+#preview::-webkit-scrollbar {
+  width: 8px;
+}
+
+#preview::-webkit-scrollbar-thumb {
+  background-color: #d0e9d3; /* Mint green scrollbar thumb */
+  border-radius: 8px;
+}
+
+#preview::-webkit-scrollbar-thumb:hover {
+  background-color: #b0d8b5; /* Slightly darker thumb on hover */
+}
+
+/* Responsive Design for small screens */
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .editor-container, .preview-container {
+    margin-bottom: 15px;
+    padding: 10px;
+  }
+
+  textarea {
+    height: 200px;
+    padding: 10px;
+  }
+
+  #preview {
+    padding: 15px;
+    min-height: 200px;
   }
 }
